@@ -16,16 +16,16 @@ Requirements
 •	This site will consist of at least 5 PHP files: index.php,  cart.php, admin.php, DB.class.php, and LIB_project1.php
 •	Each page will share common graphic elements, and will have a global navigation system that links to every other page.  These common elements MUST be achieved through the use of functions or a template system.  Points will be deducted if common code (html or php) is copied on more than one page.
 •	These pages will be located in the student's: ~abc1234/Sites/341/project1/ folder on kelvin.
-•	The site should have an attractive design. 
-•	When planning your code and design, you need to make sure the site can be “re-arranged” without changing the content-generating script coding.  You can achieve this in one of two ways: 
+•	The site should have an attractive design.
+•	When planning your code and design, you need to make sure the site can be “re-arranged” without changing the content-generating script coding.  You can achieve this in one of two ways:
 •	Through the extensive use of <div id/class> tags and changing the order of creating the sections of the pages and CSS files OR
 •	Through the use of a template system, where you read in the template file replacing placeholders with content (a different template would provide a different look for the same content) in conjunction with CSS files.
 •	CSS (in external style sheets) should be used extensively.
 •	The site will pass HTML5 validation.
-•	index.php will have (in addition to the common elements described above): 
+•	index.php will have (in addition to the common elements described above):
 •	A “sales” section that will have any products that are on sale highlighted in this section. For each product on sale, it will include an image, brief description, original price, sale price and quantity left.
 •	You will have a minimum of 3 items on sale at one time and at most 5 items on sale at one time.
-•	A “catalog” section that will list all of the products available.  For each product it will include an image, brief description, price and quantity left.  This information will be displayed 5 items at a time with a paging scheme to view the next/previous page of items. If an item is on sale, do not include it in this section of the page. 
+•	A “catalog” section that will list all of the products available.  For each product it will include an image, brief description, price and quantity left.  This information will be displayed 5 items at a time with a paging scheme to view the next/previous page of items. If an item is on sale, do not include it in this section of the page.
 •	Each item, whether in the sale or catalog section will have a “buy/add to cart” button that when clicked will add that item to a “cart” (a table in your MySQL database) and will decrease the quantity on hand (including updating the products table and the web page).
 •	You will have a minimum of 15 products for sale.
 •	The products are loaded dynamically from a MySQL database (products table).  The format for each item should be:
@@ -42,7 +42,7 @@ The sale price will be 0 if the item is NOT on sale.
 
 •	DB.class.php will contain all of your database access logic. It will use parameterized queries.
 
-•	LIB_project1.php or other class structure will contain most of your application code: 
+•	LIB_project1.php or other class structure will contain most of your application code:
 •	The code in this file will be structured as reusable functions that will be called by the other pages.
 •	Copious comments will describe the inputs, outputs, and purpose of each function.
 •	You should create functions that go beyond what we did in class.
