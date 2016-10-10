@@ -2,6 +2,7 @@ import React from 'react';
 import { pipe, filter, prop, slice, difference } from 'ramda';
 
 import SaleItem from './SaleItem';
+import Paper from './Paper';
 import { catalogType } from '../types';
 
 /**
@@ -10,11 +11,15 @@ import { catalogType } from '../types';
  * @param {catalogType} saleItems Items to show in the saleItems
  */
 const Home = ({ catalog, saleItems }) => (
-  <div>
-    <h2>Sale Items</h2>
-    {saleItems.map(saleItem => <SaleItem key={saleItem.itemId} {...saleItem} />)}
-    <h2>Catalog</h2>
-    {catalog.map(saleItem => <SaleItem key={saleItem.itemId} {...saleItem} />)}
+  <div className="Home-wrapper">
+    <Paper className="Home-catalog">
+      <h1 className="Home-title">Catalog</h1>
+      {catalog.map(saleItem => <SaleItem key={saleItem.itemId} {...saleItem} />)}
+    </Paper>
+    <Paper className="Home-saleItems">
+      <h1 className="Home-title">Sale Items</h1>
+      {saleItems.map(saleItem => <SaleItem key={saleItem.itemId} {...saleItem} />)}
+    </Paper>
   </div>
 );
 Home.propTypes = {

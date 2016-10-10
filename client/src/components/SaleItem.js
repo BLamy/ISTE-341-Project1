@@ -7,11 +7,12 @@ const SaleItem = ({ productName, imageName, description, price, salePrice, quant
     <div className="SaleItem-details">
       <h2 className="SaleItem-name">{productName}</h2>
       <p className="SaleItem-description">{description}</p>
-      {salePrice ?
+      {
+      salePrice ?
         <span className="SaleItem-price"><strike>{price}</strike>{salePrice}</span> :
         <span className="SaleItem-price">{price}</span>
       }
-      <span>{quantity} Left</span>
+      <span><strong>{quantity}</strong> Left</span>
     </div>
   </div>
 );
