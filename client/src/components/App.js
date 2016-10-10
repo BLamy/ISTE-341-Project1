@@ -4,6 +4,8 @@ import Match from 'react-router/Match';
 import Link from 'react-router/Link';
 
 import logo from '../../public/logo.svg';
+import cart from '../../public/cart.svg';
+import admin from '../../public/admin.svg';
 import Home from './Home';
 import { catalogType } from '../types';
 
@@ -27,8 +29,8 @@ const App = ({ catalog }) => (
           <img src={logo} className="App-logo" alt="logo" />
         </Link>
         <div className="App-header-right">
-          <Link to="/cart">Cart</Link>
-          <Link to="/admin">Admin</Link>
+          <Link to="/cart"><img src={cart} className="" alt="cart" /></Link>
+          <Link to="/admin"><img src={admin} className="" alt="admin" /></Link>
         </div>
       </div>
       <Match exactly pattern="/" component={() => <Home catalog={catalog} />} />

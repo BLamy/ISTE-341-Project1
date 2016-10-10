@@ -24,6 +24,10 @@ body {
   float: right;
 }
 
+.App-header-right img {
+  padding: 20px;
+}
+
 .App-loading {
   left: 50%;
   position: absolute;
