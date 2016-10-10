@@ -3,10 +3,9 @@ import Router from 'react-router/BrowserRouter';
 import Match from 'react-router/Match';
 import Link from 'react-router/Link';
 
-import logo from '../logo.svg';
+import logo from '../../public/logo.svg';
 import Home from './Home';
-
-const { arrayOf, shape, number, string } = React.PropTypes;
+import { catalogType } from '../types';
 
 const Cart = () => (
   <div>
@@ -39,14 +38,7 @@ const App = ({ catalog }) => (
   </Router>
 );
 App.propTypes = {
-  catalog: arrayOf(shape({
-    itemId: number.isRequired,
-    description: string.isRequired,
-    imageName: string.isRequired,
-    price: number.isRequired,
-    salePrice: number.isRequired,
-    quantity: number.isRequired
-  }))
+  catalog: catalogType
 };
 
 export default App;

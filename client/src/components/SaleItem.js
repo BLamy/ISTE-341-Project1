@@ -1,22 +1,20 @@
 import React from 'react';
-const { string, number } = React.PropTypes;
+import { saleItemType } from '../types';
 
-const SaleItem = ({ imageName, description, price, salePrice, quantity }) => (
-  <div>
-    <img src={imageName} alt={description} />
-    <p>{description}</p>
-    <span>{price}</span>
-    <span>{salePrice}</span>
-    <span>{quantity}</span>
+const SaleItem = ({ productName, imageName, description, price, salePrice, quantity }) => (
+  <div className="SaleItem">
+    <img src={imageName} alt={description} className="SaleItem-img" />
+    <div className="SaleItem-details">
+      <h2 className="SaleItem-name">{productName}</h2>
+      <p className="SaleItem-description">{description}</p>
+      {salePrice ?
+        <span className="SaleItem-price"><strike>{price}</strike>{salePrice}</span> :
+        <span className="SaleItem-price">{price}</span>
+      }
+      <span>{quantity} Left</span>
+    </div>
   </div>
 );
-SaleItem.propTypes = {
-  itemId: number.isRequired,
-  description: string.isRequired,
-  imageName: string.isRequired,
-  price: number.isRequired,
-  salePrice: number.isRequired,
-  quantity: number.isRequired
-};
+SaleItem.propTypes = saleItemType;
 
 export default SaleItem;

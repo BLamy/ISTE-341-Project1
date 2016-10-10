@@ -2,8 +2,8 @@ import React from 'react';
 import Router from 'react-router/BrowserRouter';
 import Link from 'react-router/Link';
 
-import logo from '../logo.svg';
-import loading from '../loading.svg';
+import logo from '../../public/logo.svg';
+import loading from '../../public/loading.svg';
 
 export default () => (
   <Router>
