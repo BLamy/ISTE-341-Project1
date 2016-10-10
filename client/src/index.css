@@ -23,3 +23,16 @@ body {
   color: white;
   float: right;
 }
+
+.App-loading {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+  animation: App-loading-spin infinite 1s linear;
+}
+
+@keyframes App-loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
