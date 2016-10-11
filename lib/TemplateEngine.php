@@ -1,37 +1,25 @@
 <?php
+require_once './lib/Util.php';
+
 const HTML_TAGS = ['div', 'p', 'span', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
 class TemplateEngine {
-
-  /**
-   * Convert foo-bar to fooBar
-   * http://stackoverflow.com/a/38581647/373722
-   */
-  private static function dashcaseToCamelCase ($str) {
-    // Remove underscores, capitalize words, squash, lowercase first.
-    return lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $str))));
-  }
-
-  /**
-   * Convert foo-bar to FooBar
-   * http://stackoverflow.com/a/38581647/373722
-   */
-  private static function dashcaseToBookCase ($str) {
+  private static function dashcaseToElementName($str) {
     if (in_array($str, HTML_TAGS)) return $str;
-    // Remove underscores, capitalize words, squash, lowercase first.
-    return ucfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $str))));
+    return Util::dashcaseToBookCase($str);
   }
 
   /**
    * Create our own jsx inspired PHP template engine
    */
   private static function compile($root) {
-    $elementName = self::dashcaseToBookCase($root->localName);
+    $elementName = self::dashcaseToElementName($root->localName);
     //-----------------------
     // attributes
     //-----------------------
     $attributes = [];
     foreach ($root->attributes as $attribute) {
-      $key = self::dashcaseToCamelCase($attribute->localName);
+      $key = Util::dashcaseToCamelCase($attribute->localName);
       $attributes[] = "{$key}: '{$attribute->value}'";
     }
 
@@ -59,15 +47,11 @@ class TemplateEngine {
     );
   }
 
-  private static function template($jsx) {
+  public static function render($jsx) {
     $dom = new DomDocument();
     $dom->loadHTML($jsx);
     $root = $dom->documentElement->childNodes[0]->childNodes[0];
-    return self::compile($root);
-  }
-
-  public static function render($jsx) {
-    $html = self::template($jsx);
+    $html =  self::compile($root);
     return <<<HTML
     <!DOCTYPE html>
     <html>
