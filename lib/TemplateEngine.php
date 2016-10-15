@@ -2,10 +2,10 @@
 
 class TemplateEngine {
   /**
-   * All components will be autoresolved out of /lib/components
+   * All components will be autoresolved out of /view
    */
   private static function pathForComponent($name) {
-    return getcwd() . "/lib/components/{$name}.php";
+    return getcwd() . "/view/{$name}.php";
   }
 
   /**

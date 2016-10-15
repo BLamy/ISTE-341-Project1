@@ -1,6 +1,6 @@
 <?php
 require_once '../dbinfo.php';
-require_once './lib/DB.php';
+require_once './model/index.php';
 require_once './lib/TemplateEngine.php';
 $db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass);
 
