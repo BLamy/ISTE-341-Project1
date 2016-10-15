@@ -88,23 +88,30 @@ class TemplateEngine {
   /**
    * Will Render given jsx into a valid html5 page
    */
-  public static function page($jsx) {
-    $page = self::render($jsx);
+  public static function page($jsx, $pageName = '', $title='RIT Shirts') {
+    $body = self::render(<<<TEMPLATE
+      <div class="$pageName">
+        <Toolbar />
+        $jsx
+      </div>
+TEMPLATE
+    );
+
     return <<<PAGE
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <title>RIT Shirts</title>
-        <meta name="description" content="ISTE-341-Project">
-        <meta name="author" content="Brett Lamy">
-        <link rel="stylesheet" href="public/index.css" />
-      </head>
-      <body>
-        $page
-        <script src="js/scripts.js"></script>
-      </body>
-    </html>
+      <!doctype html>
+      <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <title>$title</title>
+          <meta name="description" content="ISTE-341-Project">
+          <meta name="author" content="Brett Lamy">
+          <link rel="stylesheet" href="public/index.css" />
+        </head>
+        <body>
+          $body
+          <script src="js/scripts.js"></script>
+        </body>
+      </html>
 PAGE;
   }
 }

@@ -21,8 +21,28 @@ body {
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   border-radius: 2px;
   margin: 20px;
-  width: 100%;
+  width: calc(100% - 40px);
 }
+
+.Paper h1 {
+  background-color: #F5F5F5;
+  height: 34px;
+  margin: 0;
+  padding: 20px;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 34px;
+}
+
+.Paper h2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  opacity: .71;
+  margin: 20px;
+}
+
 
 /******************************************************************
 Components
@@ -55,17 +75,6 @@ Components
 /*
  Home.php
  */
-.Home .title {
-  background-color: #F5F5F5;
-  height: 34px;
-  margin: 0;
-  padding: 20px;
-  font-size: 34px;
-  font-weight: 400;
-  letter-spacing: -.01em;
-  line-height: 34px;
-}
-
 .Home .wrapper {
   display: flex;
   flex-direction: row;

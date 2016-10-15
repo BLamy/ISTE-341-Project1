@@ -3,7 +3,6 @@ function Home($props) {
   foreach ($props as $key => $prop) { $$key = $prop; }
   return <<<TEMPLATE
   <div class='Home'>
-    <Toolbar />
     <div class='wrapper'>
       <div class='catalog Paper'>
         <h1 class='title'>Catalog</h1>

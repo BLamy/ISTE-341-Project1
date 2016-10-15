@@ -5,6 +5,5 @@ require_once './lib/TemplateEngine.php';
 
 $db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass); // From dbinfo.php
 $items = json_encode($db->getItems());
-$saleItems = json_encode($db->getSaleItems());
-echo TemplateEngine::page("<Home items='$items' saleItems='$saleItems' />", 'homepage', "RIT Shirts | Home");
+echo TemplateEngine::page("<Admin items='$items' />", 'admin-page', "RIT Shirts | Admin");
 ?>

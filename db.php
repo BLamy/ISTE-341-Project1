@@ -30,6 +30,20 @@ class DB {
     }
   }
 
+  function getItemsById($ids) {
+    $first = ($pageNumber - 1) * $itemsPerPage;
+    $last = $first + $itemsPerPage + 1;
+    try {
+        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE FIND_IN_SET(id, :array)");
+        $stmt->bindParam(":array", implode(',', $ids));
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die();
+    }
+  }
+
   function addItemToCart($deviceId, $itemId) {
   }
 
