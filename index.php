@@ -1,30 +1,14 @@
 <?php
-require_once '../dbinfo.php';
 require_once './model/index.php';
 require_once './lib/TemplateEngine.php';
-$db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass);
+
+require_once '../dbinfo.php';
+$db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass); // From dbinfo.php
 
 $items = json_encode($db->getItems());
+$saleItems = json_encode($db->getSaleItems());
 
-$homepage = <<<TEMPLATE
-<link rel="stylesheet" href="public/index.css" />
-<div>
-  <Toolbar />
-  <div class='Home-wrapper'>
-    <div class='Home-catalog'>
-      <h1 class='Home-title'>Catalog</h1>
-      <SaleItemList items='$items' />
-    </div>
-    <div class='Home-saleItems'>
-      <h1 class='Home-title'>Sales</h1>
-      <SaleItemList items='$items' />
-    </div>
-  </div>
-</div>
-TEMPLATE;
-
-
-echo TemplateEngine::render($homepage);
+echo TemplateEngine::page("<Home items='$items' saleItems='$saleItems' />");
 
 
 

@@ -1,3 +1,7 @@
+/******************************************************************
+Global
+*******************************************************************/
+
 body {
   margin: 0;
   padding: 0;
@@ -20,31 +24,38 @@ body {
   width: 100%;
 }
 
-.Header-logo {
+/******************************************************************
+Components
+*******************************************************************/
+
+/*
+ Home.php
+ */
+ .Toolbar {
+   background-color: #222;
+   height: 64px;
+   color: white;
+ }
+
+.Toolbar .logo {
   height: 50px;
   padding: 5px 5px 5px 20px;
 }
 
-.Header {
-  background-color: #222;
-  height: 64px;
-  color: white;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-.Header-right {
+.Toolbar .right {
   color: white;
   float: right;
 }
 
-.Header-right img {
+.Toolbar .right img {
   padding: 20px;
 }
 
-.Home-title {
+/*
+ Home.php
+ */
+.Home .title {
   background-color: #F5F5F5;
   height: 34px;
   margin: 0;
@@ -55,32 +66,35 @@ body {
   line-height: 34px;
 }
 
-.Home-wrapper {
+.Home .wrapper {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-.Home-catalog {
+.Home .catalog {
   margin: 20px 10px 20px 20px;
   width: calc(100% - 40px);
 }
 
-.Home-saleItems {
+.Home .saleItems {
   margin: 20px 20px 20px 10px;
   width: 550px;
 }
 
 @media screen and (max-width: 1300px) {
-  .Home-wrapper {
+  .Home .wrapper {
     flex-direction: column-reverse;
   }
-  .Home-saleItems {
+  .Home .saleItems {
     width: calc(100% - 40px);
     margin: 20px 20px 20px 20px;
   }
 }
 
+/*
+ SaleItem.php
+ */
 .SaleItem {
   width: 100%;
   height: 100px;
@@ -95,11 +109,11 @@ body {
   border: none;
 }
 
-.SaleItem-img {
+.SaleItem img {
   width: 100px;
 }
 
-.SaleItem-name {
+.SaleItem .name {
   margin: 0;
   color: rgba(0, 0, 0, .91);
   font-size: 20px;
@@ -107,21 +121,25 @@ body {
   line-height: 28px;
 }
 
-.SaleItem-description {
+.SaleItem .description {
   margin: 5px 0;
   color: rgba(0, 0, 0, .70);
 }
 
+.SaleItem .details {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ Price.php
+ */
 .Price {
   color: #4CAF50;
 }
 
-.Price>strike {
+.Price .strike {
   color: #FF8A80;
+  text-decoration: line-through;
   padding-right: 10px;
-}
-
-.SaleItem-details {
-  display: flex;
-  flex-direction: column;
 }

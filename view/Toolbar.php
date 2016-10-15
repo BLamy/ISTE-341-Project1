@@ -2,11 +2,11 @@
 function Toolbar() {
   // foreach ($props as $key => $prop) { $$key = $prop; }
   return <<<TEMPLATE
-  <div class="Header">
+  <div class="Toolbar">
     <a href="/">
-      <img src="public/logo.svg" class="Header-logo" alt="logo" />
+      <img src="public/logo.svg" class="logo" alt="logo" />
     </a>
-    <div class="Header-right">
+    <div class="right">
       <a href="/cart">
         <img src="public/cart.svg" alt="cart" />
       </a>

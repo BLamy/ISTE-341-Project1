@@ -5,7 +5,7 @@ function Price($props) {
   if (floatval($salePrice)) {
     return <<<TEMPLATE
     <span class="Price">
-      <strike>{$price}</strike>
+      <span class="Price-strike">{$price}</span>
       {$salePrice}
     </span>
 TEMPLATE;
