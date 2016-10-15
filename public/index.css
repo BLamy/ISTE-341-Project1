@@ -152,3 +152,22 @@ Components
   text-decoration: line-through;
   padding-right: 10px;
 }
+
+/*
+ SignIn.php
+ */
+.SignIn form {
+  padding-left: 20px;
+}
+
+.SignIn input[type="submit"] {
+  background: orange;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+.SignIn p {
+  font-size: 10px;
+  margin-left: 20px;
+}

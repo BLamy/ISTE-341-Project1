@@ -2,7 +2,7 @@
 session_start();
 require_once './db.php';
 require_once '../dbinfo.php';
-require_once './lib/TemplateEngine.php';
+require_once './LIB_project1.php';
 
 if(!isset($_SESSION['cart_items'])){
     $_SESSION['cart_items'] = [];

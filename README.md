@@ -41,10 +41,10 @@ Please pay attention to directory and file names.  Also, make sure you include a
 -	The information here will come from a table cart in the db.
 
 ### db.php
--	~~ will contain all of your database access logic. It will use parameterized queries.~~
+-	~~will contain all of your database access logic. It will use parameterized queries.~~
 
 #### LIB_project1.php
--	~~ or other class structure will contain most of your application code:~~
+-	~~or other class structure will contain most of your application code:~~
 -	~~The code in this file will be structured as reusable functions that will be called by the other pages.~~
 -	Copious comments will describe the inputs, outputs, and ~~purpose of each function~~.
 -	~~You should create functions that go beyond what we did in class.~~
