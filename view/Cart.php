@@ -1,7 +1,6 @@
 <?php
 function Cart($props) {
   foreach ($props as $key => $prop) { $$key = $prop; }
-
   if ($items === '[]') {
     return <<<TEMPLATE
     <div class='Cart Paper'>

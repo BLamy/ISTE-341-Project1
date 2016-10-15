@@ -6,6 +6,7 @@ function SaleItemList($props) {
     foreach ($item as $key => $prop) { $$key = $prop; }
     return <<<TEMPLATE
     <SaleItem
+      id='$id'
       productName='$productName'
       imageName='$imageName'
       description='$description'
@@ -15,6 +16,5 @@ function SaleItemList($props) {
     />
 TEMPLATE;
   }, json_decode(html_entity_decode($props['items']))));
-
   return "<div class='SaleItemList'>$items</div>";
 }

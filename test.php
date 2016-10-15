@@ -1,5 +1,5 @@
 <?php
-require_once './lib/TemplateEngine.php';
+require_once './LIB_project1.php';
 
 function Test($cb) {
   $cb();
