@@ -4,38 +4,27 @@ require_once './lib/DB.php';
 require_once './lib/TemplateEngine.php';
 $db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass);
 
-function renderItems($items) {
-  return implode('', array_map(function($item) {
-    return "
-    <Sale-item
-      product-name='{$item['productName']}'
-      image-name='{$item['imageName']}'
-      description='{$item['description']}'
-      price='{$item['price']}'
-      sale-price='{$item['salePrice']}'
-      quantity='{$item['quantity']}'
-    />";
-  }, $items));
-}
+$items = json_encode($db->getItems());
 
-$homepage = TemplateEngine::render("
+$homepage = <<<TEMPLATE
+<link rel="stylesheet" href="public/index.css" />
 <div>
-  <Header />
-  <div class-name='Home-wrapper'>
-    <Paper class-name='Home-catalog'>
-      <h1 class-name='Home-title'>Catalog</h1>".
-      renderItems($db->getItems()).
-    "</Paper>
-    <Paper class-name='Home-saleItems'>
-      <h1 class-name='Home-title'>Sales</h1>".
-      renderItems($db->getSaleItems()).
-    "</Paper>
+  <Toolbar />
+  <div class='Home-wrapper'>
+    <div class='Home-catalog'>
+      <h1 class='Home-title'>Catalog</h1>
+      <SaleItemList items='$items' />
+    </div>
+    <div class='Home-saleItems'>
+      <h1 class='Home-title'>Sales</h1>
+      <SaleItemList items='$items' />
+    </div>
   </div>
-<div>
-");
+</div>
+TEMPLATE;
 
 
-echo $homepage;
+echo TemplateEngine::render($homepage);
 
 
 
