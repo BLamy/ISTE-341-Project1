@@ -20,12 +20,12 @@ body {
   width: 100%;
 }
 
-.App-logo {
+.Header-logo {
   height: 50px;
   padding: 5px 5px 5px 20px;
 }
 
-.App-header {
+.Header {
   background-color: #222;
   height: 64px;
   color: white;
@@ -35,26 +35,13 @@ body {
   font-size: large;
 }
 
-.App-header-right {
+.Header-right {
   color: white;
   float: right;
 }
 
-.App-header-right img {
+.Header-right img {
   padding: 20px;
-}
-
-.App-loading {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%);
-  animation: App-loading-spin infinite 1s linear;
-}
-
-@keyframes App-loading-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .Home-title {
@@ -125,11 +112,11 @@ body {
   color: rgba(0, 0, 0, .70);
 }
 
-.SaleItem-price {
+.Price {
   color: #4CAF50;
 }
 
-.SaleItem-price>strike {
+.Price>strike {
   color: #FF8A80;
   padding-right: 10px;
 }
