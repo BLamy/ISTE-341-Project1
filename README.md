@@ -36,7 +36,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 
 #### cart.php:
 -	A listing of all items in the cart with a total amount of sale included.  
--	You should only include the product name, the description, quantity ordered (in this case only 1) and cost for the item.  Do not include the image.
+-	~~You should only include the product name, the description, quantity ordered (in this case only 1) and cost for the item.  Do not include the image.~~
 -	There should be a button that will clear (empty) the cart (i.e remove items from the table and display an “Empty Cart” message). (Don’t worry about resetting the item count for this project).
 -	The information here will come from a table cart in the db.
 
