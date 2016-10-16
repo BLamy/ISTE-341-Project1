@@ -2,18 +2,18 @@
 function SaleItem($props) {
   foreach ($props as $key => $prop) { $$key = $prop; }
   $buttons = '';
-  if ($add) {
+  if (isset($add) && $add) {
     $buttons .= "<button onclick='$add($id)'>Add To Cart</button>";
   }
-  if ($delete) {
+  if (isset($delete) && $delete) {
     $buttons .= "<button onclick='$delete($id)'>Remove</button>";
   }
-  if ($edit) {
+  if (isset($edit) && $edit) {
     $buttons .= "<button onclick='$edit($id)'>Edit Item</button>";
   }
 
   $img = '';
-  if ($imageName && $imageName !== '') {
+  if (isset($imageName) && $imageName !== '') {
     $img = "<img src='public/$imageName' alt='$description' />";
   }
 

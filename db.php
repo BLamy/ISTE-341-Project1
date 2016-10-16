@@ -31,8 +31,6 @@ class DB {
   }
 
   function getPageCount($itemsPerPage = 5) {
-    $first = ($pageNumber - 1) * $itemsPerPage;
-    $last = $first + $itemsPerPage;
     try {
         $stmt = $this->dbh->prepare("SELECT count(*) FROM Item");
         $stmt->execute();
@@ -45,11 +43,10 @@ class DB {
   }
 
   function getItemsById($ids) {
-    $first = ($pageNumber - 1) * $itemsPerPage;
-    $last = $first + $itemsPerPage + 1;
     try {
+        $idarr = implode(',', $ids);
         $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE FIND_IN_SET(id, :array)");
-        $stmt->bindParam(":array", implode(',', $ids));
+        $stmt->bindParam(":array", $idarr);
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $e) {
@@ -76,7 +73,16 @@ class DB {
   // @permission Admin
   //------------------------------
   function addItem($productName, $description, $price, $quantity, $imageName, $salePrice) {
-    // If the item would put us over 5 sale items fail to add.
+    // #TODO: If the item would put us over 5 sale items fail to add.
+    try {
+        $args = [$productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice)];
+        $stmt = $this->dbh->prepare("INSERT INTO Item (productName, description, price, quantity, imageName, salePrice) VALUES(?, ?, ?, ?, ?, ?)");
+        $stmt->execute($args);
+        return $this->dbh->lastInsertId();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die();
+    }
   }
 
   function updateItem($itemId, $productName, $description, $price, $quantity, $imageName, $salePrice) {

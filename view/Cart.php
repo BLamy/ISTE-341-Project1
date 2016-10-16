@@ -12,7 +12,12 @@ TEMPLATE;
 
   return <<<TEMPLATE
   <div class='Cart Paper'>
-    <h1 class='title'>Your Cart</h1>
+    <h1 class='title'>
+      Your Cart
+      <button class='remove-all' onclick="Cart.removeAll()">
+        Remove All
+      </button>
+    </h1>
     <SaleItemList items='$items' delete='Cart.remove' />
   </div>
 TEMPLATE;

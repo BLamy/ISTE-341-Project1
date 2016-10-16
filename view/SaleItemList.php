@@ -1,8 +1,8 @@
 <?php
 function SaleItemList($props) {
-  $add = $props['add'] ?: false;
-  $delete = $props['delete'] ?: false;
-  $edit = $props['edit'] ?: false;
+  $add = isset($props['add']) ? $props['add'] : false;
+  $delete = isset($props['delete']) ? $props['delete'] : false;
+  $edit = isset($props['edit']) ? $props['edit'] : false;
   $items = implode('', array_map(function($item) use($add, $delete, $edit){
     foreach ($item as $key => $prop) { $$key = $prop; }
 

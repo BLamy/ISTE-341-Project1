@@ -7,8 +7,16 @@ window.Cart = {
         });
       });
   },
+
   remove: function(id) {
     jQuery.post('ajax/remove_from_cart.php', { id: id })
+      .then(function (res) {
+        jQuery("#cart-page").html(res);
+      });
+  },
+
+  removeAll: function() {
+    jQuery.post('ajax/remove_all_from_cart.php')
       .then(function (res) {
         jQuery("#cart-page").html(res);
       });

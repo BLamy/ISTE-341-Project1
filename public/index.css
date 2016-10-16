@@ -114,6 +114,14 @@ Components
 }
 
 /*
+ Cart.php
+ */
+.Cart .remove-all {
+  float: right;
+  margin: 5px;
+}
+
+/*
  SaleItem.php
  */
 .SaleItem {
@@ -228,7 +236,9 @@ Components
   color: orange;
 }
 
-
+/**
+ * Toast.php
+ */
 .Toast {
   display: none;
   position: fixed;
