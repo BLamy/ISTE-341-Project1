@@ -1,12 +1,17 @@
 <?php
 function SaleItemList($props) {
-  // echo html_entity_decode($props['items']);
-  $items = implode('', array_map(function($item) {
-    // print_r($item);
+  $add = $props['add'] ?: false;
+  $delete = $props['delete'] ?: false;
+  $edit = $props['edit'] ?: false;
+  $items = implode('', array_map(function($item) use($add, $delete, $edit){
     foreach ($item as $key => $prop) { $$key = $prop; }
+
     return <<<TEMPLATE
     <SaleItem
       id='$id'
+      add='$add'
+      delete='$delete'
+      edit='$edit'
       productName='$productName'
       imageName='$imageName'
       description='$description'

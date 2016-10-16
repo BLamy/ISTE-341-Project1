@@ -10,6 +10,16 @@ body {
   background-color: #FAFAFA;
 }
 
+button,
+input[type="submit"] {
+  font-weight: bold;
+  background: orange;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
 .Paper {
   overflow: hidden;
   color: rgba(0, 0, 0, 0.870588);
@@ -93,7 +103,7 @@ Components
   width: 550px;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .Home .wrapper {
     flex-direction: column-reverse;
   }
@@ -110,6 +120,7 @@ Components
   width: 100%;
   height: 100px;
   clear: both;
+  position: relative;
   display: flex;
   padding: 10px;
   margin: 15px;
@@ -142,6 +153,14 @@ Components
   flex-direction: column;
 }
 
+.SaleItem button {
+  width: 120px;
+  position: absolute;
+  right: 45px;
+  border: 10px;
+  bottom: 10px;
+}
+
 /*
  Price.php
  */
@@ -162,11 +181,20 @@ Components
   padding-left: 20px;
 }
 
+.SignIn input[type="password"] {
+  font-size: 16px;
+  border-radius: 2px;
+  border-style: none;
+  border: 1px solid #c1c1c1;
+}
+
 .SignIn input[type="submit"] {
+  font-weight: bold;
   background: orange;
   color: white;
   border: none;
   border-radius: 2px;
+  font-size: 15px;
 }
 
 .SignIn p {
@@ -174,6 +202,9 @@ Components
   margin-left: 20px;
 }
 
+/*
+ Pagination.php
+ */
 .Pagination {
   position: absolute;
   bottom: 0px;
@@ -182,6 +213,7 @@ Components
   width: 100%;
   line-height: 35px;
 }
+
 .Pagination a {
   flex: 1;
   text-align: center;
@@ -190,6 +222,7 @@ Components
   text-decoration: none;
   opacity: .71;
 }
+
 .Pagination a.active {
   opacity: .91;
   color: orange;

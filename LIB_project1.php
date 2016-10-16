@@ -5,7 +5,7 @@ class TemplateEngine {
    * All components will be autoresolved out of /view
    */
   private static function pathForComponent($name) {
-    return getcwd() . "/view/{$name}.php";
+    return __DIR__ . "/view/{$name}.php";
   }
 
   /**
@@ -94,9 +94,11 @@ class TemplateEngine {
    */
   public static function page($jsx, $pageSlug = '', $title='RIT Shirts') {
     $body = self::render(<<<TEMPLATE
-      <div id="$pageSlug">
+      <div id="app">
         <Toolbar />
-        $jsx
+        <div id="$pageSlug">
+          $jsx
+        </div>
       </div>
 TEMPLATE
     );

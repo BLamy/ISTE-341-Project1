@@ -6,12 +6,12 @@ function Home($props) {
     <div class='wrapper'>
       <div class='catalog Paper'>
         <h1 class='title'>Catalog</h1>
-        <SaleItemList items='$items' />
+        <SaleItemList items='$items' add='Cart.add' />
         <Pagination pageCount='$pageCount' currentPage='$currentPage'/>
       </div>
       <div class='saleItems Paper'>
         <h1 class='title'>Sales</h1>
-        <SaleItemList items='$saleItems' />
+        <SaleItemList items='$saleItems' add='Cart.add'/>
       </div>
     </div>
   </div>

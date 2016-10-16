@@ -13,7 +13,7 @@ TEMPLATE;
   return <<<TEMPLATE
   <div class='Cart Paper'>
     <h1 class='title'>Your Cart</h1>
-    <SaleItemList items='$items' />
+    <SaleItemList items='$items' delete='Cart.remove' />
   </div>
 TEMPLATE;
 };
