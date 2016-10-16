@@ -53,7 +53,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 #### admin.php:
 -	Pick an item to edit and save the changes.  Make sure that the number of items on sale constraint doesn’t get violated.
 -	Add an item for sale.  The picture can be on the server already (or above and beyond allow uploading of a picture).  Again, if it is on sale, make sure to follow the constraint.
--	No editing or adding will be done without a correct password. (Above and beyond would be to add a login with access control and sessions instead of a password every time).
+-	~~No editing or adding will be done without a correct password. (Above and beyond would be to add a login with access control and sessions instead of a password every time).~~
 
 -	Just in case: create backups of your catalog table when you have completed the site.
 -	~~You may elect to have additional pages.~~

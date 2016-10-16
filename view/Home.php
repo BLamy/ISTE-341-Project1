@@ -7,6 +7,7 @@ function Home($props) {
       <div class='catalog Paper'>
         <h1 class='title'>Catalog</h1>
         <SaleItemList items='$items' />
+        <Pagination pageCount='$pageCount' currentPage='$currentPage'/>
       </div>
       <div class='saleItems Paper'>
         <h1 class='title'>Sales</h1>

@@ -15,15 +15,29 @@ class DB {
   //------------------------------
   // @permission Public
   //------------------------------
-  function getItems($pageNumber = 1, $itemsPerPage = 10) {
+  function getItems($pageNumber = 1, $itemsPerPage = 5) {
     $first = ($pageNumber - 1) * $itemsPerPage;
-    $last = $first + $itemsPerPage + 1;
+    $last = $first + $itemsPerPage;
     try {
-        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE id BETWEEN :first AND :last");
+        $stmt = $this->dbh->prepare("SELECT * FROM Item ORDER BY id LIMIT :first, :itemsPerPage");
         $stmt->bindParam(":first", $first, PDO::PARAM_INT);
-        $stmt->bindParam(":last", $last, PDO::PARAM_INT);
+        $stmt->bindParam(":itemsPerPage", $itemsPerPage, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die();
+    }
+  }
+
+  function getPageCount($itemsPerPage = 5) {
+    $first = ($pageNumber - 1) * $itemsPerPage;
+    $last = $first + $itemsPerPage;
+    try {
+        $stmt = $this->dbh->prepare("SELECT count(*) FROM Item");
+        $stmt->execute();
+        $count = $stmt->fetchAll()[0][0];
+        return ceil($count / $itemsPerPage);
     } catch (PDOException $e) {
         echo $e->getMessage();
         die();
@@ -44,16 +58,12 @@ class DB {
     }
   }
 
-  function addItemToCart($deviceId, $itemId) {
-  }
-
-  function getSaleItems($pageNumber = 1, $itemsPerPage = 10) {
+  function getSaleItems($pageNumber = 1, $itemsPerPage = 5) {
     $first = ($pageNumber - 1) * $itemsPerPage;
-    $last = $first + $itemsPerPage + 1;
     try {
-        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE salePrice != 0 AND id BETWEEN :first AND :last");
+        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE salePrice != 0 ORDER BY id LIMIT :first, :itemsPerPage");
         $stmt->bindParam(":first", $first, PDO::PARAM_INT);
-        $stmt->bindParam(":last", $last, PDO::PARAM_INT);
+        $stmt->bindParam(":itemsPerPage", $itemsPerPage, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $e) {
@@ -66,14 +76,14 @@ class DB {
   // @permission Admin
   //------------------------------
   function addItem($productName, $description, $price, $quantity, $imageName, $salePrice) {
-
+    // If the item would put us over 5 sale items fail to add.
   }
 
   function updateItem($itemId, $productName, $description, $price, $quantity, $imageName, $salePrice) {
-
+    // If the update would put us over 5 (or under 3) sale items fail to update.
   }
 
   function deleteItem($itemId) {
-
+    // If the delete would put us under 3 sale items fail to delete.
   }
 }

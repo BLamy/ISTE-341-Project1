@@ -4,7 +4,7 @@ function SaleItem($props) {
   foreach ($props as $key => $prop) { $$key = $prop; }
   return <<<TEMPLATE
   <div class="SaleItem">
-    <img src="$imageName" alt="$description" />
+    <img src="public/$imageName" alt="$description" />
     <div class="details">
       <h2 class="name">$productName</h2>
       <p class="description">$description</p>
