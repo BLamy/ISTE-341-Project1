@@ -227,3 +227,15 @@ Components
   opacity: .91;
   color: orange;
 }
+
+
+.Toast {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  line-height: 30px;
+    background: #4CAF50;
+  color: white;
+  padding: 7px 80px;
+}

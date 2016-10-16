@@ -14,6 +14,7 @@ function Home($props) {
         <SaleItemList items='$saleItems' add='Cart.add'/>
       </div>
     </div>
+    <Toast message="Did Add to cart"/>
   </div>
 TEMPLATE;
 };
