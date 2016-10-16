@@ -25,7 +25,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 -	~~index.php will have (in addition to the common elements described above):~~
 -	~~A “sales” section that will have any products that are on sale highlighted in this section. For each product on sale, it will include an image, brief description, original price, sale price and quantity left.~~
 -	You will have a minimum of 3 items on sale at one time and at most 5 items on sale at one time.
--	A “catalog” section that will list all of the products available.  For each product it will include an image, brief description, price and quantity left.  This information will be displayed 5 items at a time with a paging scheme to view the next/previous page of items. If an item is on sale, do not include it in this section of the page.
+-	~~A “catalog” section that will list all of the products available.  For each product it will include an image, brief description, price and quantity left.  This information will be displayed 5 items at a time with a paging scheme to view the next/previous page of items. If an item is on sale, do not include it in this section of the page.~~
 -	~~Each item, whether in the sale or catalog section will have a “buy/add to cart” button that when clicked will add that item to a “cart”~~ (a table in your MySQL database) and will decrease the quantity on hand (including updating the products table and the web page).
 -	~~You will have a minimum of 15 products for sale.~~
 -	~~The products are loaded dynamically from a MySQL database (products table).  The format for each item should be:~~

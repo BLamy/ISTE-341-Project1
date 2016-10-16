@@ -11,9 +11,15 @@ function SaleItem($props) {
   if ($edit) {
     $buttons .= "<button onclick='$edit($id)'>Edit Item</button>";
   }
+
+  $img = '';
+  if ($imageName && $imageName !== '') {
+    $img = "<img src='public/$imageName' alt='$description' />";
+  }
+
   return <<<TEMPLATE
   <div class="SaleItem">
-    <img src="public/$imageName" alt="$description" />
+    $img
     <div class="details">
       <h2 class="name">$productName</h2>
       <p class="description">$description</p>
