@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../db.php';
-require_once '../../dbinfo.php';
+require_once '../../../dbinfo.php';
 require_once '../LIB_project1.php';
 
 $id = isset($_POST['id']) ? $_POST['id'] : "";
