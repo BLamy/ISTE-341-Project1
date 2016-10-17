@@ -12,6 +12,10 @@ class Assert {
       echo "✔ $msg\n";
     } else {
       echo "× $msg\n";
+      echo "Actual:\n";
+      print_r($actual);
+      echo "\nExpected:\n";
+      print_r($expected);
     }
   }
 }
@@ -25,7 +29,7 @@ ACTUAL
 
   $expected =<<<EXPECTED
   <span class="Price">
-    <strike>100.00</strike>
+    <span class="strike">100.00</span>
     50.00
   </span>
 EXPECTED;
@@ -65,14 +69,15 @@ ACTUAL
 
   $expected = <<<EXPECTED
   <div class="SaleItem">
-    <img src="3.png" alt="A RIT Hockey Jersey" class="SaleItem-img"/>
-    <div class="SaleItem-details">
-      <h2 class="SaleItem-name">RIT Hockey Jersey</h2>
-      <p class="SaleItem-description">A RIT Hockey Jersey</p>
+    <img src="public/3.png" alt="A RIT Hockey Jersey" />
+    <div class="details">
+      <h2 class="name">RIT Hockey Jersey</h2>
+      <p class="description">A RIT Hockey Jersey</p>
       <span class="Price">
       39.95
     </span>
-      <span><strong>20</strong> Left</span>
+      <span>Quantity: <strong>20</strong></span>
+      <div class="buttons"/>
     </div>
   </div>
 EXPECTED;

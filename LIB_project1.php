@@ -28,7 +28,7 @@ class TemplateEngine {
       if($node->hasChildNodes()) {
         $recursivelyResolvedChildren = self::findCustomChildrenOfNode($node);
         if (count($recursivelyResolvedChildren)) {
-          array_push($customElements, ...$recursivelyResolvedChildren);
+          $customElements = array_merge($customElements, $recursivelyResolvedChildren);
         }
       }
     }
