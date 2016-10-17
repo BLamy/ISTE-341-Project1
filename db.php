@@ -55,12 +55,9 @@ class DB {
     }
   }
 
-  function getSaleItems($pageNumber = 1, $itemsPerPage = 5) {
-    $first = ($pageNumber - 1) * $itemsPerPage;
+  function getSaleItems() {
     try {
-        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE salePrice != 0 ORDER BY id LIMIT :first, :itemsPerPage");
-        $stmt->bindParam(":first", $first, PDO::PARAM_INT);
-        $stmt->bindParam(":itemsPerPage", $itemsPerPage, PDO::PARAM_INT);
+        $stmt = $this->dbh->prepare("SELECT * FROM Item WHERE salePrice != 0");
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $e) {
@@ -88,7 +85,7 @@ class DB {
   function updateItem($itemId, $productName, $description, $price, $quantity, $imageName, $salePrice) {
     // If the update would put us over 5 (or under 3) sale items fail to update.
     try {
-        $stmt = $this->dbh->prepare("UPDATE Item SET productName=? description=? price=? description=? price=? quantity=? imageName=? salePrice=? WHERE id=? ");
+        $stmt = $this->dbh->prepare("UPDATE Item SET productName=?, description=?, price=?, quantity=?, imageName=?, salePrice=? WHERE id=? ");
         $stmt->execute([$productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice), intval($itemId)]);
         return true;
     } catch (PDOException $e) {

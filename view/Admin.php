@@ -6,6 +6,7 @@ function Admin($props) {
     <div class='Paper'>
       <h1 class='title'>Admin</h1>
       <h2>This is a Secret page</h2>
+      <h3>$error</h3>
       <form action="admin.php" method="POST">
         <input type="hidden" name="logout" value="true" />
         <input type="submit" value="Logout" />

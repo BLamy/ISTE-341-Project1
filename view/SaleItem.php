@@ -12,7 +12,7 @@ function SaleItem($props) {
     $buttons .= "<button onclick=\"document.location.href='admin.php?delete=$id'\">Delete</button>";
   }
   if (isset($edit) && $edit) {
-    $buttons .= "<button onclick='$edit($id)'>Edit Item</button>";
+    $buttons .= "<button onclick=\"document.location.href='admin.php?edit=$id'\">Edit</button>";
   }
   $buttons = "<div class='buttons'>$buttons</div>";
 
@@ -28,7 +28,7 @@ function SaleItem($props) {
       <h2 class="name">$productName</h2>
       <p class="description">$description</p>
       <Price price="$price" salePrice="$salePrice" />
-      <span><strong>$quantity</strong> Left</span>
+      <span>Quantity: <strong>$quantity</strong></span>
       $buttons
     </div>
   </div>

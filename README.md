@@ -24,7 +24,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 -	~~The site will pass HTML5 validation.~~
 -	~~index.php will have (in addition to the common elements described above):~~
 -	~~A “sales” section that will have any products that are on sale highlighted in this section. For each product on sale, it will include an image, brief description, original price, sale price and quantity left.~~
--	You will have a minimum of 3 items on sale at one time and at most 5 items on sale at one time.
+-	~~You will have a minimum of 3 items on sale at one time and at most 5 items on sale at one time.~~
 -	~~A “catalog” section that will list all of the products available.  For each product it will include an image, brief description, price and quantity left.  This information will be displayed 5 items at a time with a paging scheme to view the next/previous page of items. If an item is on sale, do not include it in this section of the page.~~
 -	~~Each item, whether in the sale or catalog section will have a “buy/add to cart” button that when clicked will add that item to a “cart”~~ (a table in your MySQL database) and will decrease the quantity on hand (including updating the products table and the web page).
 -	~~You will have a minimum of 15 products for sale.~~
@@ -51,7 +51,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 -	~~This file will be included (or required) by the other pages.~~
 
 #### admin.php:
--	Pick an item to edit and save the changes.  Make sure that the number of items on sale constraint doesn’t get violated.
+-	~~Pick an item to edit and save the changes.  Make sure that the number of items on sale constraint doesn’t get violated.~~
 -	~~Add an item for sale.  The picture can be on the server already (or above and beyond allow uploading of a picture).~~  Again, if it is on sale, make sure to follow the constraint.
 -	~~No editing or adding will be done without a correct password. (Above and beyond would be to add a login with access control and sessions instead of a password every time).~~
 

@@ -17,8 +17,10 @@ if ($id) {
 
 $db = new DB($DB_host, $DB_port, $DB_name, $DB_user, $DB_pass); // From dbinfo.php
 $cartItems = $db->getItemsById($_SESSION['cart_items']);
-$items = json_encode(array_map(function($item){
+$quantities = array_count_values($_SESSION['cart_items']);
+$items = json_encode(array_map(function($item) use($quantities){
   $item['imageName'] = '';
+  $item['quantity'] = $quantities[$item['id']];
   return $item;
 }, $cartItems));
 echo TemplateEngine::render("<Cart items='$items' />", 'cart-page', "RIT Shirts | Cart");
