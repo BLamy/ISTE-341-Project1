@@ -72,7 +72,7 @@ class DB {
   function addItem($productName, $description, $price, $quantity, $imageName, $salePrice) {
     // #TODO: If the item would put us over 5 sale items fail to add.
     try {
-        $args = [$productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice)];
+        $args = array($productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice));
         $stmt = $this->dbh->prepare("INSERT INTO Item (productName, description, price, quantity, imageName, salePrice) VALUES(?, ?, ?, ?, ?, ?)");
         $stmt->execute($args);
         return $this->dbh->lastInsertId();
@@ -86,7 +86,7 @@ class DB {
     // If the update would put us over 5 (or under 3) sale items fail to update.
     try {
         $stmt = $this->dbh->prepare("UPDATE Item SET productName=?, description=?, price=?, quantity=?, imageName=?, salePrice=? WHERE id=? ");
-        $stmt->execute([$productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice), intval($itemId)]);
+        $stmt->execute(array($productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice), intval($itemId)));
         return true;
     } catch (PDOException $e) {
         echo $e->getMessage();
@@ -98,7 +98,7 @@ class DB {
     // If the delete would put us under 3 sale items fail to delete.
     try {
         $stmt = $this->dbh->prepare("DELETE FROM Item WHERE id=?");
-        $stmt->execute([intval($itemId)]);
+        $stmt->execute(array(intval($itemId)));
         return true;
     } catch (PDOException $e) {
         echo $e->getMessage();
