@@ -5,12 +5,16 @@ function SaleItem($props) {
   if (isset($add) && $add) {
     $buttons .= "<button onclick='$add($id)'>Add To Cart</button>";
   }
-  if (isset($delete) && $delete) {
-    $buttons .= "<button onclick='$delete($id)'>Remove</button>";
+  if (isset($deleteFromCart) && $deleteFromCart) {
+    $buttons .= "<button onclick='$deleteFromCart($id)'>Remove</button>";
+  }
+  if (isset($deleteFromInventory) && $deleteFromInventory) {
+    $buttons .= "<button onclick=\"document.location.href='admin.php?delete=$id'\">Delete</button>";
   }
   if (isset($edit) && $edit) {
     $buttons .= "<button onclick='$edit($id)'>Edit Item</button>";
   }
+  $buttons = "<div class='buttons'>$buttons</div>";
 
   $img = '';
   if (isset($imageName) && $imageName !== '') {

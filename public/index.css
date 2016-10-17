@@ -11,6 +11,7 @@ body {
 }
 
 button,
+.button,
 input[type="submit"] {
   font-weight: bold;
   background: orange;
@@ -53,6 +54,13 @@ input[type="submit"] {
   margin: 20px;
 }
 
+.catalog {
+  margin: 20px 10px 40px 20px;
+  width: calc(100% - 40px);
+  position: relative;
+  padding-bottom: 35px;
+}
+
 
 /******************************************************************
 Components
@@ -89,13 +97,6 @@ Components
   display: flex;
   flex-direction: row;
   width: 100%;
-}
-
-.Home .catalog {
-  margin: 20px 10px 40px 20px;
-  width: calc(100% - 40px);
-  position: relative;
-  padding-bottom: 35px;
 }
 
 .Home .saleItems {
@@ -161,12 +162,17 @@ Components
   flex-direction: column;
 }
 
-.SaleItem button {
-  width: 120px;
+.SaleItem .buttons {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   right: 45px;
   border: 10px;
   bottom: 10px;
+}
+.SaleItem button {
+  width: 120px;
+  margin: 5px;
 }
 
 /*

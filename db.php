@@ -87,9 +87,25 @@ class DB {
 
   function updateItem($itemId, $productName, $description, $price, $quantity, $imageName, $salePrice) {
     // If the update would put us over 5 (or under 3) sale items fail to update.
+    try {
+        $stmt = $this->dbh->prepare("UPDATE Item SET productName=? description=? price=? description=? price=? quantity=? imageName=? salePrice=? WHERE id=? ");
+        $stmt->execute([$productName, $description, floatval($price), intval($quantity), $imageName, floatval($salePrice), intval($itemId)]);
+        return true;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die();
+    }
   }
 
   function deleteItem($itemId) {
     // If the delete would put us under 3 sale items fail to delete.
+    try {
+        $stmt = $this->dbh->prepare("DELETE FROM Item WHERE id=?");
+        $stmt->execute([intval($itemId)]);
+        return true;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die();
+    }
   }
 }

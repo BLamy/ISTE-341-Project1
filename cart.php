@@ -14,5 +14,7 @@ $items = json_encode(array_map(function($item){
   $item['imageName'] = '';
   return $item;
 }, $cartItems));
+
+//TODO Number of Items in cart. Cart Total
 echo TemplateEngine::page("<Cart items='$items' />", 'cart-page', "RIT Shirts | Cart");
 ?>

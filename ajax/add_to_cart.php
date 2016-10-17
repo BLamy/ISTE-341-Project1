@@ -13,6 +13,8 @@ if (count($cartItems) == 0 || $cartItems[0]['quantity'] == 0) {
   die('false');
 }
 // TODO: subtract one from quantity
+// You will have a minimum of 3 items on sale at one time and at most 5 items on sale at one time.
+
 if(!isset($_SESSION['cart_items'])){
     $_SESSION['cart_items'] = [];
 }

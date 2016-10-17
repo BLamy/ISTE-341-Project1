@@ -18,7 +18,7 @@ TEMPLATE;
         Remove All
       </button>
     </h1>
-    <SaleItemList items='$items' delete='Cart.remove' />
+    <SaleItemList items='$items' deleteFromCart='Cart.remove' />
   </div>
 TEMPLATE;
 };

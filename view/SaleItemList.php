@@ -1,16 +1,18 @@
 <?php
 function SaleItemList($props) {
   $add = isset($props['add']) ? $props['add'] : false;
-  $delete = isset($props['delete']) ? $props['delete'] : false;
+  $deleteFromCart = isset($props['deleteFromCart']) ? $props['deleteFromCart'] : false;
+  $deleteFromInventory = isset($props['deleteFromInventory']) ? $props['deleteFromInventory'] : false;
   $edit = isset($props['edit']) ? $props['edit'] : false;
-  $items = implode('', array_map(function($item) use($add, $delete, $edit){
+  $items = implode('', array_map(function($item) use($add, $deleteFromCart, $deleteFromInventory, $edit){
     foreach ($item as $key => $prop) { $$key = $prop; }
 
     return <<<TEMPLATE
     <SaleItem
       id='$id'
       add='$add'
-      delete='$delete'
+      deleteFromCart='$deleteFromCart'
+      deleteFromInventory='$deleteFromInventory'
       edit='$edit'
       productName='$productName'
       imageName='$imageName'
