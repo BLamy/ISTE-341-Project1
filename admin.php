@@ -38,7 +38,7 @@ if ((isset($_POST['password']) && $_POST['password'] === 'password') || $_SESSIO
   // Edit
   //-------------------
   } else if (isset($_POST['edit'])) {
-    $item = $db->getItemsById([intval($_POST['edit'])])[0];
+    list($item) = $db->getItemsById(array(intval($_POST['edit'])));
     $isCurrentlyOnSale = intval($item['salePrice']) !== 0;
     $willBeOnSaleAfterUpdate = intval($_POST['salePrice']) !== 0;
     if ($isCurrentlyOnSale && !$willBeOnSaleAfterUpdate && !canRemoveMore($saleItems)) {
@@ -65,7 +65,7 @@ if ((isset($_POST['password']) && $_POST['password'] === 'password') || $_SESSIO
   $numberOfPages = json_encode($db->getPageCount());
 
   if (isset($_GET['edit'])) { // Display edit page
-   $item = $db->getItemsById([intval($_GET['edit'])])[0];
+   list($item) = $db->getItemsById(array(intval($_GET['edit'])));
    $item = json_encode($item);
    echo TemplateEngine::page("<AdminEdit item='$item' />", 'admin-page', "RIT Shirts | Admin");
   } else {

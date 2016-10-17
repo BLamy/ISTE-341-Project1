@@ -34,7 +34,7 @@ class DB {
     try {
         $stmt = $this->dbh->prepare("SELECT count(*) FROM Item");
         $stmt->execute();
-        $count = $stmt->fetchAll()[0][0];
+        list(list($count)) = $stmt->fetchAll(); // Array Dereferencing: http://php.net/manual/en/language.types.array.php#example-116
         return ceil($count / $itemsPerPage);
     } catch (PDOException $e) {
         echo $e->getMessage();
