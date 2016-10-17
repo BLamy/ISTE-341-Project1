@@ -1,5 +1,5 @@
 <?php
-require_once '../dbinfo.php';
+require_once '../../dbinfo.php';
 require_once './db.php';
 require_once './LIB_project1.php';
 

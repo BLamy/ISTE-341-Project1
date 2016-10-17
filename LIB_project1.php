@@ -20,7 +20,7 @@ class TemplateEngine {
    * Recursively find all the child nodes which are in the components directory
    */
   private static function findCustomChildrenOfNode($domNode) {
-    $customElements = [];
+    $customElements = array();
     foreach ($domNode->childNodes as $node) {
       if (self::isCustomElement($node->localName)) {
         $customElements[] = $node;
@@ -28,7 +28,7 @@ class TemplateEngine {
       if($node->hasChildNodes()) {
         $recursivelyResolvedChildren = self::findCustomChildrenOfNode($node);
         if (count($recursivelyResolvedChildren)) {
-          array_push($customElements, ...$recursivelyResolvedChildren);
+          $customElements = array_merge($customElements, $recursivelyResolvedChildren);
         }
       }
     }
@@ -43,7 +43,7 @@ class TemplateEngine {
   private static function compile($root) {
     $children = self::findCustomChildrenOfNode($root->documentElement);
     foreach ($children as $child) {
-      $attributes = [];
+      $attributes = array();
       foreach ($child->attributes as $attribute) {
         $attributes[$attribute->localName] = $attribute->value;
       }

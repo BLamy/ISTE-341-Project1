@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once '../db.php';
-require_once '../../dbinfo.php';
+require_once '../../../dbinfo.php';
 require_once '../LIB_project1.php';
 
 if(!isset($_SESSION['cart_items'])){
-    $_SESSION['cart_items'] = [];
+  $_SESSION['cart_items'] = array();
 }
 
 $id = isset($_POST['id']) ? $_POST['id'] : false;
