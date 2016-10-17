@@ -13,7 +13,7 @@ TEMPLATE;
   return <<<TEMPLATE
   <div class='Cart Paper'>
     <h1 class='title'>
-      Your Cart
+      Your Cart: \$ $total
       <button class='remove-all' onclick="Cart.removeAll()">
         Remove All
       </button>
