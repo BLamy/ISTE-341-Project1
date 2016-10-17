@@ -37,7 +37,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 #### cart.php:
 -	A listing of all items in the cart with a total amount of sale included.  
 -	~~You should only include the product name, the description, quantity ordered (in this case only 1) and cost for the item.  Do not include the image.~~
--	There should be a button that will clear (empty) the cart (i.e remove items from the table and display an “Empty Cart” message). (Don’t worry about resetting the item count for this project).
+-	~~There should be a button that will clear (empty) the cart (i.e remove items from the table and display an “Empty Cart” message). (Don’t worry about resetting the item count for this project).~~
 -	The information here will come from a table cart in the db.
 
 ### db.php
@@ -52,7 +52,7 @@ Please pay attention to directory and file names.  Also, make sure you include a
 
 #### admin.php:
 -	Pick an item to edit and save the changes.  Make sure that the number of items on sale constraint doesn’t get violated.
--	Add an item for sale.  The picture can be on the server already (or above and beyond allow uploading of a picture).  Again, if it is on sale, make sure to follow the constraint.
+-	~~Add an item for sale.  The picture can be on the server already (or above and beyond allow uploading of a picture).~~  Again, if it is on sale, make sure to follow the constraint.
 -	~~No editing or adding will be done without a correct password. (Above and beyond would be to add a login with access control and sessions instead of a password every time).~~
 
 -	Just in case: create backups of your catalog table when you have completed the site.
